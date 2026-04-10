@@ -1284,3 +1284,118 @@ img {
 		border-top: none !important;
 	}
 }
+
+/* ==========================================================================
+   12. PÁGINA DE ERROR 404
+   ========================================================================== */
+.pagina-error {
+	background-color: var(--color-fondo-alt);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.seccion-404 {
+	padding: 8rem 0;
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.contenido-404 {
+	display: grid;
+	grid-template-columns: 1fr 1.2fr;
+	gap: 5rem;
+	align-items: center;
+}
+
+.imagen-404-container {
+	position: relative;
+	border-radius: 30px;
+	overflow: hidden;
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.imagen-404 {
+	width: 100%;
+	height: auto;
+	display: block;
+	transition: transform 10s linear;
+}
+
+.imagen-404-container:hover .imagen-404 {
+	transform: scale(1.1);
+}
+
+.insignia-404 {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	background-color: var(--color-principal);
+	color: white;
+	padding: 1rem 1.5rem;
+	border-radius: 12px;
+	font-family: var(--fuente-titulos);
+	font-size: 2rem;
+	font-weight: 700;
+	box-shadow: 0 10px 20px rgba(93, 16, 30, 0.3);
+}
+
+.titulo-error {
+	font-family: var(--fuente-titulos);
+	font-size: var(--fs-h1);
+	color: var(--color-principal);
+	margin-bottom: 2rem;
+}
+
+.descripcion-error {
+	font-size: var(--fs-p-lg);
+	color: var(--color-texto-sec);
+	margin-bottom: 3rem;
+	line-height: 1.6;
+}
+
+.acciones-error {
+	display: flex;
+	gap: 2rem;
+}
+
+/* Estilo específico para el segundo botón de la 404 */
+.seccion-404 .boton-secundario {
+	background: transparent;
+	border: 2px solid var(--color-principal);
+	color: var(--color-principal);
+}
+
+.seccion-404 .boton-secundario:hover {
+	background: var(--color-principal);
+	color: white;
+}
+
+.footer-simple {
+	padding: 2rem 0;
+	text-align: center;
+	font-size: var(--fs-xs);
+	color: var(--color-texto-sec);
+	border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive 404 */
+@media (max-width: 768px) {
+	.contenido-404 {
+		grid-template-columns: 1fr;
+		text-align: center;
+		gap: 3rem;
+	}
+
+	.acciones-error {
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	.insignia-404 {
+		top: 20px;
+		right: 20px;
+		font-size: 1.5rem;
+	}
+}
