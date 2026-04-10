@@ -1288,6 +1288,16 @@ img {
 /* ==========================================================================
    12. PÁGINA DE ERROR 404
    ========================================================================== */
+.pagina-error .cabecera-principal {
+	background-color: transparent;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.pagina-error .logo-texto-superior,
+.pagina-error .logo-texto-inferior {
+	color: var(--color-principal);
+}
+
 .pagina-error {
 	background-color: var(--color-fondo-alt);
 	min-height: 100vh;
