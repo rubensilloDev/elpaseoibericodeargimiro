@@ -242,6 +242,8 @@ img {
 
 /* La rejilla que divide la portada en texto e imagen */
 .rejilla-portada {
+	max-width: 90%;
+	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 1.2fr 0.8fr;
 	align-items: center;
@@ -469,14 +471,35 @@ img {
 	}
 }
 
-/* Clase para aplicar la animación de subida */
-.animacion-subida {
-	animation: animacionSubida 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* Animaciones de Scroll */
+.animacion-subida,
+.animacion-izquierda,
+.animacion-derecha,
+.animacion-aparicion {
+	opacity: 0;
+	transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	pointer-events: none;
 }
 
-/* Clase para aplicar la animación de aparición */
-.animacion-aparicion {
-	animation: animacionAparicion 1.2s ease forwards;
+.animacion-subida {
+	transform: translateY(50px);
+}
+
+.animacion-izquierda {
+	transform: translateX(-80px);
+}
+
+.animacion-derecha {
+	transform: translateX(80px);
+}
+
+.animacion-subida.visible,
+.animacion-izquierda.visible,
+.animacion-derecha.visible,
+.animacion-aparicion.visible {
+	opacity: 1;
+	transform: translate(0, 0);
+	pointer-events: auto;
 }
 
 /* Clase para aplicar la animación de zoom */
@@ -919,10 +942,11 @@ img {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
-	/* Aquí podrías animarlo con JS más adelante, por ahora lo dejamos fijo */
+	height: var(--progreso-paseo, 0%);
+	/* Altura dinámica calculada por JS */
 	background-color: var(--color-principal);
 	border-radius: 10px;
+	transition: height 0.1s ease-out;
 }
 
 /* Los hitos de la ruta (Items) */
