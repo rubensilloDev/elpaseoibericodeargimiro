@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>El Paseo Ibérico de Argimiro | Tradición y Brasa en Córdoba</title>
+	<!-- Google Fonts: Cinzel y Montserrat -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap"
+		rel="stylesheet">
+	<!-- CSS Principal -->
+	<link rel="stylesheet" href="index.css">
+	<!-- Iconos (FontAwesome para las estrellas) -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+	<!-- Navegación Principal -->
+	<header class="cabecera-principal">
+		<div class="contenedor-navegacion">
+			<div class="logo">
+				<a href="index.html">
+					<span class="logo-texto">ARGIMIRO</span>
+				</a>
+			</div>
+
+			<nav class="menu-navegacion">
+				<ul class="lista-menu">
+					<li><a href="index.html" class="enlace-menu activo">Inicio</a></li>
+					<li><a href="carta.html" class="enlace-menu">La Carta</a></li>
+					<li><a href="resenas.html" class="enlace-menu">Reseñas</a></li>
+					<li><a href="contacto.html" class="enlace-menu">Contacto</a></li>
+				</ul>
+			</nav>
+
+			<div class="accion-cabecera">
+				<a href="tel:+34687519204" class="boton-accion-cabecera">Reserva Ahora</a>
+			</div>
+
+			<!-- Botón Hamburguesa Móvil -->
+			<div class="alternar-menu-movil">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<!-- Sección Portada (Hero) -->
+		<section class="portada-principal">
+			<!-- Video de fondo -->
+			<div class="fondo-video">
+				<div class="capa-video"></div>
+				<video autoplay muted loop playsinline class="elemento-video">
+					<source src="img/video-restaurante-hero.mp4" type="video/mp4">
+				</video>
+			</div>
+
+			<div class="contenedor-portada rejilla-portada">
+				<!-- Lado Izquierdo: Texto y Botones -->
+				<div class="columna-contenido">
+					<div class="tarjeta-resena-google animacion-aparicion">
+						<div class="iconos-estrellas">
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star"></i>
+							<i class="fas fa-star-half-alt"></i>
+						</div>
+						<p class="texto-resena"><strong>4.7/5</strong> en Google Maps <span>(+1.000 clientes)</span></p>
+					</div>
+
+					<h1 class="titulo-portada animacion-subida">El Paseo Ibérico de Argimiro, <br><span
+							class="resaltado">tu restaurante en Córdoba.</span></h1>
+					<p class="descripcion-portada animacion-subida">Maestros de la brasa tradicional y el producto
+						ibérico puro. Saborea la esencia de Córdoba con una experiencia avalada por más de 1.000
+						clientes. No te quedes sin mesa, reserva tu sitio hoy mismo.</p>
+
+					<div class="grupo-botones animacion-subida">
+						<a href="tel:+34687519204" class="boton-primario">Llamar y Reservar</a>
+						<a href="carta.html" class="boton-secundario">Ver la Carta</a>
+					</div>
+				</div>
+
+				<!-- Lado Derecho: Imagen y Tarjeta Flotante -->
+				<div class="columna-imagen">
+					<div class="envoltorio-imagen-portada animacion-zoom">
+						<img src="img/img-dueño-cortando-jamon.png" alt="Dueño cortando jamón en El Paseo Ibérico"
+							class="imagen-portada">
+
+						<!-- Tarjeta Absoluta (Arriba-Derecha) -->
+						<div class="tarjeta-flotante-frase">
+							<p class="frase-destacada">Productos 100% <br>de la Dehesa</p>
+							<div class="decoracion-oro"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sección Cintas de Destacados (Infinitas) -->
+		<section class="contenedor-cintas">
+			<!-- Cinta 1: Hacia la izquierda (Calidad y Maestría) -->
+			<div class="cinta-flujo cinta-izquierda">
+				<div class="grupo-frases">
+					<span class="frase-carrusel">+15 Años de Tradición</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">100% Productos Ibéricos de Autor</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Maestros de la Brasa con Encina</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Cortes de Carne Seleccionados</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Jamón Ibérico Cortado a Mano</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Sabor Auténtico de la Dehesa</span>
+					<span class="punto-separador"></span>
+				</div>
+				<!-- Duplicado para el efecto infinito -->
+				<div class="grupo-frases" aria-hidden="true">
+					<span class="frase-carrusel">+15 Años de Tradición</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">100% Productos Ibéricos de Autor</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Maestros de la Brasa con Encina</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Cortes de Carne Seleccionados</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Jamón Ibérico Cortado a Mano</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Sabor Auténtico de la Dehesa</span>
+					<span class="punto-separador"></span>
+				</div>
+			</div>
+
+			<!-- Cinta 2: Hacia la derecha (Reputación y Experiencia) -->
+			<div class="cinta-flujo cinta-derecha">
+				<div class="grupo-frases">
+					<span class="frase-carrusel">+3.000 Clientes Satisfechos</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Valoración 4.7/5 en Google Maps</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">En el Corazón de la Judería</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Recetas Caseras Cordobesas</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Ambiente Familiar y Acogedor</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Tu Casa en Córdoba</span>
+					<span class="punto-separador"></span>
+				</div>
+				<!-- Duplicado para el efecto infinito -->
+				<div class="grupo-frases" aria-hidden="true">
+					<span class="frase-carrusel">+3.000 Clientes Satisfechos</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Valoración 4.7/5 en Google Maps</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">En el Corazón de la Judería</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Recetas Caseras Cordobesas</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Ambiente Familiar y Acogedor</span>
+					<span class="punto-separador"></span>
+					<span class="frase-carrusel">Tu Casa en Córdoba</span>
+					<span class="punto-separador"></span>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECCIÓN: EL COMPROMISO DE ARGIMIRO (Autoridad Dinámica) -->
+		<section class="seccion-compromiso">
+			<div class="contenedor-restriccion"> <!-- Wrapper div obligatorio por regla 4 HTML -->
+
+				<!-- Grupo de títulos: Encabezado arriba -->
+				<div class="bloque-cabecera-autor">
+					<h2 class="titulo-maestria">
+						La Maestría de Argimiro: <br>
+						<span class="enfasis-marca">El sabor de una vida dedicada al Ibérico puro.</span>
+					</h2>
+					<p class="bajada-autor">
+						No solo servimos comida; custodiamos una tradición que nace en la dehesa y se perfecciona en
+						nuestra brasa.
+					</p>
+				</div>
+
+				<!-- Escenario Visual: Foto Central + Tarjetas Satélite -->
+				<div class="escenario-visual-autor">
+
+					<!-- Bloque de la Imagen Central -->
+					<div class="contenedor-foto-maestro">
+						<img src="img/img-dueño-profesional.webp" alt="Argimiro, el alma del restaurante"
+							class="foto-autor-principal" loading="lazy">
+						<!-- Brillo de luz suave detrás del autor -->
+						<div class="brillo-decorativo-autor"></div>
+					</div>
+
+					<!-- Tarjetas Flotantes con Puntos de Valor -->
+					<div class="tarjeta-valor-autor tarjeta-pos-1">
+						<div class="icono-valor-autor"><i class="fas fa-fire"></i></div>
+						<div class="texto-valor-autor">
+							<h4 class="nombre-valor">Fuego de Tradición</h4>
+							<p class="detalle-valor">Cocinamos al ritmo de la brasa, respetando los tiempos de siempre.
+							</p>
+						</div>
+					</div>
+
+					<div class="tarjeta-valor-autor tarjeta-pos-2">
+						<div class="icono-valor-autor"><i class="fas fa-medal"></i></div>
+						<div class="texto-valor-autor">
+							<h4 class="nombre-valor">El Producto es Ley</h4>
+							<p class="detalle-valor">Materia prima de la dehesa seleccionada para elevar cada receta.
+							</p>
+						</div>
+					</div>
+
+					<div class="tarjeta-valor-autor tarjeta-pos-3">
+						<div class="icono-valor-autor"><i class="fas fa-home"></i></div>
+						<div class="texto-valor-autor">
+							<h4 class="nombre-valor">Tu Casa en la Judería</h4>
+							<p class="detalle-valor">Un espacio acogedor diseñado para disfrutar sin ninguna prisa.</p>
+						</div>
+					</div>
+
+					<div class="tarjeta-valor-autor tarjeta-pos-4">
+						<div class="icono-valor-autor"><i class="fas fa-gem"></i></div>
+						<div class="texto-valor-autor">
+							<h4 class="nombre-valor">Sabor Sin Artificios</h4>
+							<p class="detalle-valor">Cocina honesta donde el ingrediente es el único protagonista.</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- SECCIÓN: PROPUESTA DE VALOR -->
+		<section class="seccion-propuesta">
+			<div class="contenedor-restriccion">
+
+				<!-- Cabecera de la sección -->
+				<div class="cabecera-propuesta animacion-subida">
+					<h2 class="titulo-propuesta">Saborea Córdoba sin complicaciones: <br><span class="enfasis-marca">el
+							rincón donde el producto es el único protagonista</span></h2>
+				</div>
+
+				<!-- Grid de contenido -->
+				<div class="grid-propuesta">
+
+					<!-- Lado Izquierdo: Imagen Profesional -->
+					<div class="columna-imagen-propuesta">
+						<div class="envoltorio-imagen-local">
+							<img src="img/img-local-profesional.webp" alt="Interior acogedor de El Paseo Ibérico"
+								class="imagen-local" loading="lazy">
+							<div class="adorno-borde"></div>
+						</div>
+					</div>
+
+					<!-- Lado Derecho: Copy y Tarjetas de Confianza -->
+					<div class="columna-texto-propuesta">
+						<h3 class="subtitulo-propuesta"><strong>¿Cansado de sentarte en sitios donde el ruido no te deja
+								hablar?</strong></h3>
+						<p class="intro-propuesta">Aquí vienes a desconectar de verdad. Un espacio acogedor en el
+							corazón de la ciudad diseñado para que tu única "complicación" sea decidir qué carne a la
+							brasa probar hoy.</p>
+
+						<ul class="lista-beneficios">
+							<li>
+								<i class="fas fa-check-circle"></i>
+								<span><strong>Producto seleccionado:</strong> De la dehesa a tu mesa sin filtros.</span>
+							</li>
+							<li>
+								<i class="fas fa-check-circle"></i>
+								<span><strong>Tranquilidad absoluta:</strong> El entorno ideal para esas reuniones que
+									no quieres que acaben.</span>
+							</li>
+							<li>
+								<i class="fas fa-check-circle"></i>
+								<span><strong>Comodidad real:</strong> Espacio adaptado y pensado para que familias y
+									grupos se sientan cómodos.</span>
+							</li>
+						</ul>
+
+						<!-- Tarjetas de Confianza (Debajo del texto) -->
+						<div class="contenedor-tarjetas-confianza">
+							<div class="tarjeta-confianza">
+								<div class="icono-confianza"><i class="fas fa-shield-alt"></i></div>
+								<div class="texto-confianza">
+									<strong>Reserva Protegida</strong>
+									<span>Sin pagos previos ni sorpresas</span>
+								</div>
+							</div>
+							<div class="tarjeta-confianza">
+								<div class="icono-confianza"><i class="fas fa-wheelchair"></i></div>
+								<div class="texto-confianza">
+									<strong>Accesibilidad Total</strong>
+									<span>Local adaptado para todos</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- SECCIÓN: CARACTERÍSTICAS (TIMELINE "EL PASEO") -->
+		<section class="seccion-caracteristicas-paseo" id="caracteristicas">
+			<div class="contenedor-restriccion">
+				
+				<div class="bloque-cabecera-generico animacion-subida">
+					<h2 class="titulo-maestria">El Paseo de la <span class="enfasis-marca">Tradición</span></h2>
+					<p class="bajada-autor">Cada detalle está pensado para que tu experiencia en Córdoba sea inolvidable.</p>
+				</div>
+
+				<div class="contenedor-paseo">
+					<!-- La línea vertical central -->
+					<div class="paseo-linea"></div>
+
+					<!-- Item 1: Ibéricos (Derecha) -->
+					<div class="paseo-item item-derecha animacion-subida">
+						<div class="paseo-punto"><i class="fas fa-fire-alt"></i></div>
+						<div class="paseo-tarjeta">
+							<h3 class="titulo-caracteristica">Especialidad en Ibéricos</h3>
+							<p>Seleccionamos las mejores piezas para brasearlas al estilo tradicional de Argimiro.</p>
+						</div>
+					</div>
+
+					<!-- Item 2: Tapas (Izquierda) -->
+					<div class="paseo-item item-izquierda animacion-subida">
+						<div class="paseo-punto"><i class="fas fa-utensils"></i></div>
+						<div class="paseo-tarjeta">
+							<h3 class="titulo-caracteristica">Tapas y Raciones</h3>
+							<p>El sabor de Córdoba en pequeños bocados, perfectos para compartir y disfrutar.</p>
+						</div>
+					</div>
+
+					<!-- Item 3: Ambiente (Derecha) -->
+					<div class="paseo-item item-derecha animacion-subida">
+						<div class="paseo-punto"><i class="fas fa-heart"></i></div>
+						<div class="paseo-tarjeta">
+							<h3 class="titulo-caracteristica">Ambiente Cercano</h3>
+							<p>Un espacio acogedor pensado para que te sientas como en el salón de tu casa.</p>
+						</div>
+					</div>
+
+					<!-- Item 4: Accesibilidad (Izquierda) -->
+					<div class="paseo-item item-izquierda animacion-subida">
+						<div class="paseo-punto"><i class="fas fa-universal-access"></i></div>
+						<div class="paseo-tarjeta">
+							<h3 class="titulo-caracteristica">Accesibilidad Total</h3>
+							<p>Local 100% adaptado para que nada te impida disfrutar de una buena comida.</p>
+						</div>
+					</div>
+
+					<!-- Item 5: Grupos (Derecha) -->
+					<div class="paseo-item item-derecha animacion-subida">
+						<div class="paseo-punto"><i class="fas fa-users"></i></div>
+						<div class="paseo-tarjeta">
+							<h3 class="titulo-caracteristica">Ideal para Grupos</h3>
+							<p>El punto de encuentro perfecto para celebraciones familiares y turistas ávidos de tradición.</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+	</main>
+
+</body>
+
+</html>
