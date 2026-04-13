@@ -55,7 +55,6 @@ body {
 	font-family: var(--fuente-cuerpo);
 	color: var(--color-texto);
 	background-color: var(--color-fondo);
-	line-height: 1.6;
 	overflow-x: hidden;
 }
 
@@ -1046,6 +1045,423 @@ img {
 
 
 /* ==========================================================================
+   14. SECCIÓN RITUALES GASTRONÓMICOS (8pt Grid System)
+   ========================================================================== */
+
+/* Contenedor principal de la sección */
+.seccion-rituales-gastronomicos .contenedor-restriccion {
+	position: relative;
+}
+
+
+.seccion-rituales-gastronomicos {
+	padding: 4rem 0;
+	background-color: var(--color-fondo);
+}
+
+/* Rejilla adaptable para las tarjetas */
+.rejilla-rituales.carrusel-activo {
+	display: flex;
+	gap: 2rem;
+	margin-top: 4rem;
+	overflow-x: auto;
+	/* Permitimos scroll horizontal */
+	scroll-snap-type: x mandatory;
+	/* Activamos el efecto de "imán" */
+	scroll-behavior: smooth;
+	padding: 2rem 0 4rem;
+	/* Espacio para sombras */
+}
+
+.rejilla-rituales.carrusel-activo::-webkit-scrollbar {
+	display: none;
+}
+
+/* Estilo de la tarjeta individual */
+.tarjeta-ritual {
+	position: relative;
+	scroll-snap-align: center;
+	/* Esto le dice: "Alinea el centro de la tarjeta con el centro del contenedor" */
+	height: 480px;
+	border-radius: 24px;
+	overflow: hidden;
+	flex: 0 0 400px;
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+	transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+	/* Transición suave para todo */
+	filter: brightness(0.8);
+	/* Un poco más oscuras por defecto */
+	transform: scale(0.95);
+	/* Un pelín más pequeñas */
+}
+
+/* Cuando pasas el ratón o cuando implementemos la clase 'activa', se iluminan */
+.tarjeta-ritual:hover {
+	filter: brightness(1);
+	transform: scale(1);
+}
+
+.boton-carrusel {
+	position: absolute;
+	/* Esto permite que floten */
+	top: 50%;
+	/* Los bajamos a la mitad de la altura */
+	transform: translateY(-50%);
+	/* Los centramos exactamente */
+	background-color: white;
+	/* Les damos fondo blanco para que se vean */
+	color: var(--color-principal);
+	border: none;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 100;
+	/* Para que siempre estén por encima de las fotos */
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.boton-carrusel:hover {
+	background-color: var(--color-principal);
+	color: white;
+	transform: translateY(-50%) scale(1.05);
+	/* mantenemos el centrado y lo aumentamos */
+}
+
+.prev {
+	position: absolute;
+	left: -35px;
+}
+
+.next {
+	position: absolute;
+	right: -35px;
+}
+
+/* Contenedor de la imagen para controlar el zoom */
+.envoltorio-visual-ritual {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.envoltorio-visual-ritual img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efecto Zoom al pasar el ratón */
+.tarjeta-ritual:hover img {
+	transform: scale(1.05);
+}
+
+/* Sombra inferior (Vignette) de 1/3 de altura */
+.sombra-inferior-ritual {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	background: linear-gradient(to top,
+			rgba(0, 0, 0, 0.9) 0%,
+			rgba(0, 0, 0, 0.7) 60%,
+			transparent 100%);
+	z-index: 1;
+}
+
+/* Contenido de texto superpuesto */
+.contenido-ritual-interno {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 2.5rem;
+	z-index: 2;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	transition: transform 0.5s ease;
+}
+
+/* Pequeño movimiento del texto al hacer hover */
+.tarjeta-ritual:hover .contenido-ritual-interno {
+	transform: translateY(-10px);
+}
+
+.nombre-ritual {
+	font-family: var(--fuente-titulos);
+	font-size: var(--fs-h3);
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.descripcion-ritual {
+	font-size: var(--fs-small);
+	line-height: 1.5;
+	opacity: 0.9;
+	margin-bottom: 1.5rem;
+	max-width: 90%;
+}
+
+/* Botón pequeño dentro de la tarjeta */
+.boton-ritual-accion {
+	align-self: flex-start;
+	padding: 0.7rem 1.2rem;
+	background-color: var(--color-acento);
+	color: var(--negro-premium);
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	border-radius: 50px;
+	letter-spacing: 1px;
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+}
+
+.boton-ritual-accion:hover {
+	background-color: white;
+	transform: translateX(5px);
+}
+
+/* Estilos al boton de ver carta completa */
+.contenedor-btn-carta {
+	text-align: center;
+	width: fit-content;
+	margin: 0 auto;
+}
+
+.btn-ver-carta-completa {
+	display: inline-block;
+	border: 2px solid var(--color-principal);
+	padding: 10px 20px;
+	border-radius: 20px;
+	color: var(--color-principal);
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.btn-ver-carta-completa:hover {
+	background-color: var(--color-principal);
+	color: white;
+	transform: translateY(-10px);
+}
+
+/* ==========================================================================
+   15. SECCIÓN TESTIMONIOS Y REPUTACIÓN
+   ========================================================================== */
+
+/* Contenedor principal de la sección */
+.seccion-testimonios-clientes {
+	padding: 4rem 0;
+	background-color: var(--color-fondo);
+}
+
+/* Rejilla para centrar el contenido */
+.seccion-testimonios-clientes .contenedor-restriccion {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3rem;
+}
+
+/* Encabezado de la sección */
+.cabecera-seccion-testimonios {
+	text-align: center;
+	max-width: 700px;
+}
+
+.titulo-maestria {
+	font-family: var(--fuente-titulos);
+	font-size: var(--fs-h2);
+	color: var(--color-principal);
+	margin-bottom: 1rem;
+}
+
+.enfasis-marca {
+	color: var(--color-acento);
+}
+
+.bajada-autor {
+	font-size: var(--fs-p);
+	color: var(--color-texto-sec);
+}
+
+/* Cuadro que resume la puntuación de Google */
+.cuadro-resumen-puntuacion {
+	border-radius: 24px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	text-align: center;
+}
+
+/* Fila de estrellas */
+.fila-estrellas-google {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.fila-estrellas-google i {
+	font-size: 2.5rem;
+	color: #FFD700;
+	/* Color dorado */
+}
+
+/* Texto de la nota media */
+.texto-nota-media {
+	font-size: var(--fs-p-lg);
+	color: var(--color-texto-sec);
+}
+
+.texto-nota-media strong {
+	font-size: 2rem;
+	color: var(--color-principal);
+}
+
+/* Enlace de acceso a reseñas */
+.enlace-acceso-resenas {
+	margin-top: 1rem;
+}
+
+.boton-primario {
+	display: inline-block;
+	padding: 1rem 2rem;
+	background-color: var(--color-principal);
+	color: white;
+	text-decoration: none;
+	border-radius: 50px;
+	font-weight: 700;
+	transition: all 0.3s ease;
+}
+
+.boton-primario:hover {
+	background-color: var(--color-acento);
+	transform: translateY(-3px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   15. SECCIÓN CONTACTO Y UBICACIÓN
+   ========================================================================== */
+.seccion-contacto-ubicacion {
+	padding: 4rem 0;
+	background-color: var(--color-fondo-alt);
+}
+
+.cabecera-seccion-contacto {
+	text-align: center;
+	margin-bottom: 5rem;
+}
+
+/* Rejilla básica: 2 columnas iguales */
+.rejilla-contacto-mapa {
+	display: grid;
+	grid-template-columns: 0.8fr 1.2fr;
+	gap: 3rem;
+	align-items: center;
+}
+
+/* Columna de la izquierda (Contacto) en modo columna flex */
+.bloque-informacion-reserva {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+/* Estilo de la tarjeta de contacto con icono redondeado */
+.tarjeta-contacto-rapido {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.icono-contacto {
+	background-color: var(--color-principal);
+	/* Color rojo principal */
+	padding: 20px;
+	color: #FFFFFF;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	flex-shrink: 0;
+}
+
+.detalles-contacto {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+}
+
+.titulo-dato {
+	font-weight: 700;
+	font-size: var(--fs-small);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: var(--color-texto-sec);
+}
+
+.enlace-contacto {
+	font-family: var(--fuente-titulos);
+	font-size: var(--fs-p);
+	color: var(--color-principal);
+	text-decoration: none;
+	transition: transform 0.3s ease;
+}
+
+/* parrafos de los texto-dato-contacto */
+
+.texto-dato-contacto {
+	color: var;
+}
+
+/* Contenedor del mapa (Derecha) */
+.bloque-mapa-ubicacion {
+	height: 480px;
+	border-radius: 30px;
+	overflow: hidden;
+	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-marco-mapa {
+	width: 100%;
+	height: 100%;
+	background-color: #E8E2D9;
+}
+
+/* Estilo del marcador temporal del mapa */
+.marcador-mapa-indicaciones {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1.5rem;
+	padding: 3rem;
+	text-align: center;
+}
+
+.marcador-mapa-indicaciones i {
+	font-size: 3.5rem;
+	color: var(--color-principal);
+	opacity: 0.8;
+}
+
+.marcador-mapa-indicaciones p {
+	font-size: var(--fs-p);
+	color: var(--color-texto-sec);
+}
+
+/* ==========================================================================
    11. RESPONSIVE — TABLET (max-width: 1024px)
    ========================================================================== */
 @media (max-width: 1024px) {
@@ -1113,6 +1529,7 @@ img {
 	.paseo-tarjeta {
 		width: 45%;
 	}
+
 }
 
 
@@ -1260,7 +1677,6 @@ img {
 		left: auto;
 		right: auto;
 		animation: none;
-		transform: none;
 	}
 
 	/* --- PROPUESTA DE VALOR MÓVIL --- */
@@ -1306,6 +1722,29 @@ img {
 		border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
 		border-right: none !important;
 		border-top: none !important;
+	}
+
+	/* --- RITUALES RESPONSIVE MÓVIL --- */
+	.seccion-rituales-gastronomicos {
+		padding: 4rem 0;
+	}
+
+	.nombre-ritual {
+		font-size: 1.5rem;
+	}
+
+	.contenido-ritual-interno {
+		padding: 1.5rem;
+	}
+
+	/* RESPONSIVE CONTACTO Y UBICACION */
+	.rejilla-contacto-mapa {
+		grid-template-columns: 1fr;
+	}
+
+	/* el boton de llamar ahora */
+	.contenedor-boton-contacto {
+		margin: 0 auto;
 	}
 }
 

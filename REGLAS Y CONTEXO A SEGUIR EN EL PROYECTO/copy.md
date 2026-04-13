@@ -131,7 +131,7 @@ Ver todas las reseñas
 
 ---
 
-## SECCIÓN CONTACTO
+## SECCIÓN CONTACTO y Ubicación
 
 ### Reserva rápida y sin complicaciones
 

@@ -30,17 +30,15 @@ const observador = new IntersectionObserver((entradas) => {
 
 // Seleccionamos todos los tipos de elementos que queremos animar
 const selectores = '.animacion-subida, .animacion-izquierda, .animacion-derecha, .animacion-aparicion';
-const elementosAAnimar = document.querySelectorAll(selectores);
 
 // Le decimos al observador que vigile cada uno de ellos
-elementosAAnimar.forEach(el => observador.observe(el));
+document.querySelectorAll(selectores).forEach(el => observador.observe(el));
 
 
 // 3. LÍNEA DEL TIEMPO DINÁMICA
 // Esta función rellena la línea roja del paseo según haces scroll
 const animarLineaPaseo = () => {
     const linea = document.querySelector('.paseo-linea');
-    if (!linea) return;
 
     const rect = linea.getBoundingClientRect();
     const scrollPropio = window.innerHeight - rect.top;
@@ -48,7 +46,7 @@ const animarLineaPaseo = () => {
 
     // Calculamos el porcentaje de la línea que hemos recorrido
     let progreso = (scrollPropio / alturaTotal) * 100;
-    
+
     // Limitamos entre 0 y 100
     progreso = Math.max(0, Math.min(100, progreso));
 
@@ -60,16 +58,29 @@ const animarLineaPaseo = () => {
 lenis.on('scroll', animarLineaPaseo);
 
 
-// 4. ASEGURAR QUE EL HERO SE VEA AL CARGAR
-// Fuerza la visibilidad de los elementos que ya están en pantalla al entrar
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        const heroElements = document.querySelectorAll('.animacion-subida');
-        heroElements.forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight) {
-                el.classList.add('visible');
-            }
-        });
-    }, 100);
-});
+
+
+// CARRUSEL
+
+const rejilla = document.querySelector('.rejilla-rituales')
+const btnPrev = document.querySelector('.prev')
+const btnNext = document.querySelector('.next')
+
+
+// ahora cada vez que se de a un boton se scrollea la rejilla una cantidad de px 
+
+btnPrev.addEventListener('click', () => {
+    rejilla.scrollBy({
+        left: -300,
+        behavior: 'smooth'
+    })
+})
+
+btnNext.addEventListener('click', () => {
+    rejilla.scrollBy({
+        left: 300,
+        behavior: 'smooth'
+    })
+})
+
+
